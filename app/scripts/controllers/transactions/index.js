@@ -549,6 +549,15 @@ export default class TransactionController extends EventEmitter {
     // only update what is defined
     swapTransaction = pickBy(swapTransaction);
 
+    const swapTransaction = {
+      sourceTokenSymbol,
+      destinationTokenSymbol,
+      type,
+      destinationTokenDecimals,
+      destinationTokenAddress,
+      swapMetaData,
+      swapTokenValue,
+    };
     const note = `Update Swap Transaction for ${txId}`;
     this._updateTransaction(txId, swapTransaction, note);
   }
