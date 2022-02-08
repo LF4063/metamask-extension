@@ -353,7 +353,7 @@ export default class TransactionController extends EventEmitter {
    * @param {number} txId
    * @returns {TransactionMeta} the txMeta who matches the given id if none found
    * for the network returns undefined
-   */
+   */  
   _getTransaction(txId) {
     const { transactions } = this.store.getState();
     return transactions[txId];
@@ -558,6 +558,10 @@ export default class TransactionController extends EventEmitter {
       swapMetaData,
       swapTokenValue,
     };
+
+    // only update what is defined
+    swapTransaction = pickBy(swapTransaction);
+
     const note = `Update Swap Transaction for ${txId}`;
     this._updateTransaction(txId, swapTransaction, note);
   }
