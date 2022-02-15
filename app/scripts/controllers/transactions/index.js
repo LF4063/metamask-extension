@@ -2158,6 +2158,10 @@ export default class TransactionController extends EventEmitter {
         this.updateEventFragment(id, { properties, sensitiveProperties });
         this.finalizeEventFragment(`transaction-submitted-${txMeta.id}`);
         break;
+      case TRANSACTION_EVENTS.SWAP_APPROVAL_UPDATED:
+        id = `transaction-swap-approval-updated-${txMeta.id}`;
+        this.updateEventFragment(id, { properties, sensitiveProperties });
+        this.finalizeEventFragment(`transaction-swap-approval-updated-${txMeta.id}`);        
       default:
         break;
     }
