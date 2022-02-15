@@ -519,12 +519,12 @@ export default class TransactionController extends EventEmitter {
    * @param {string} swapApprovalTransaction.type
    * @param {string} swapApprovalTransaction.sourceTokenSymbol
    */
-  updateSwapApprovalTransaction(txId, { type, sourceTokenSymbol }) {
+  updateSwapApprovalTransaction(txId, { type, sourceTokenSymbol, estimatedBaseFee }) {
     if (!this._checkIfTxStatusIsUnapproved(txId)) {
       return;
     }
 
-    let swapApprovalTransaction = { type, sourceTokenSymbol };
+    let swapApprovalTransaction = { type, sourceTokenSymbol, estimatedBaseFee };
     // only update what is defined
     swapApprovalTransaction = pickBy(swapApprovalTransaction);
 
@@ -2124,6 +2124,10 @@ export default class TransactionController extends EventEmitter {
         this.updateEventFragment(id, { properties, sensitiveProperties });
         this.finalizeEventFragment(`transaction-submitted-${txMeta.id}`);
         break;
+      case TRANSACTION_EVENTS.SWAP_APPROVAL_UPDATED:
+        id = `transaction-swap-approval-updated-${txMeta.id}`;
+        this.updateEventFragment(id, { properties, sensitiveProperties });
+        this.finalizeEventFragment(`transaction-swap-approval-updated-${txMeta.id}`);        
       default:
         break;
     }
