@@ -474,7 +474,7 @@ export default class TransactionController extends EventEmitter {
         gasLimit,
         gasPrice,
         maxPriorityFeePerGas,
-        maxFeePerGas,
+        maxFeePerGas,      
       },
       estimateUsed,
       estimateSuggested,
