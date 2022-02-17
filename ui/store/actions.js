@@ -730,7 +730,9 @@ export function updateSwapTransaction(txId, txSwap) {
       dispatch(updateMetamaskState(newState));
       dispatch(showConfTxPage({ id: txSwap.id }));
       return txSwap;
-    } catch(err) {}   
+    } finally {
+      dispatch(hideLoadingIndication());
+    }
   };
 }
 
