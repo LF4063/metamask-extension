@@ -511,7 +511,7 @@ export default class TransactionController extends EventEmitter {
       estimateUsed,
       estimateSuggested,
       defaultGasEstimates,
-      originalGasEstimate
+      originalGasEstimate,
     };
 
     // only update what is defined
