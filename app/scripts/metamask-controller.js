@@ -1535,7 +1535,7 @@ export default class MetamaskController extends EventEmitter {
 
       updateTransactionUserSettings: txController.updateTransactionUserSettings.bind(
         txController,
-      ),      
+      ),
 
       // messageManager
       signMessage: this.signMessage.bind(this),
