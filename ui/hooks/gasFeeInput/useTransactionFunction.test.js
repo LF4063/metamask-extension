@@ -159,6 +159,6 @@ describe('useMaxPriorityFeePerGasInput', () => {
 
     expect(mockUpdateUserSettings).toHaveBeenCalledWith(undefined, {
       userFeeLevel: 'dappSuggested',
-    });   
+    });
   });
 });
