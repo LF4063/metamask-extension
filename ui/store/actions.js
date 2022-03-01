@@ -747,15 +747,11 @@ export function updateSwapTransaction(txId, txSwap) {
       throw error;
     }
 
-    try {
-      dispatch(updateTransactionParams(txSwap.id, txSwap.txParams));
-      const newState = await updateMetamaskStateFromBackground();
-      dispatch(updateMetamaskState(newState));
-      dispatch(showConfTxPage({ id: txSwap.id }));
-      return txSwap;
-    } finally {
-      dispatch(hideLoadingIndication());
-    }
+    dispatch(updateTransactionParams(txSwap.id, txSwap.txParams));
+    const newState = await updateMetamaskStateFromBackground();
+    dispatch(updateMetamaskState(newState));
+    dispatch(showConfTxPage({ id: txSwap.id }));
+    return txSwap;
   };
 }
 
