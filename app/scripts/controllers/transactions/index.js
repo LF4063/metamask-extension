@@ -521,7 +521,7 @@ export default class TransactionController extends EventEmitter {
    * @param {string} swapTransaction.estimatedBaseFee
    * @param {string} swapTransaction.approvalTxId
    */
-  updateSwapTransaction(
+  updateSwapTransaction (
     txId,
     {
       sourceTokenSymbol,
