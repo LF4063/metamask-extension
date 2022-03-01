@@ -728,34 +728,6 @@ export function updateTransactionUserSettings(txId, txUserSettings) {
   };
 }
 
-export function updateTransactionUserSettings(txId, txUserSettings) {
-  return async (dispatch) => {
-    try {
-      await promisifiedBackground.updateTransactionUserSettings(
-        txId,
-        txUserSettings,
-      );
-    } catch (error) {
-      dispatch(txError(error));
-      dispatch(goHome());
-      log.error(error.message);
-      throw error;
-    }
-
-    try {
-      dispatch(
-        updateTransactionParams(txUserSettings.id, txUserSettings.txParams),
-      );
-      const newState = await updateMetamaskStateFromBackground();
-      dispatch(updateMetamaskState(newState));
-      dispatch(showConfTxPage({ id: txUserSettings.id }));
-      return txUserSettings;
-    } finally {
-      dispatch(hideLoadingIndication());
-    }
-  };
-}
-
 export function updateTransaction(txData, dontShowLoadingIndicator) {
   return async (dispatch) => {
     !dontShowLoadingIndicator && dispatch(showLoadingIndication());
