@@ -521,7 +521,7 @@ export default class TransactionController extends EventEmitter {
    * @param {string} swapTransaction.estimatedBaseFee
    * @param {string} swapTransaction.approvalTxId
    */
-  updateSwapTransaction (
+  updateSwapTransaction(
     txId,
     {
       sourceTokenSymbol,
@@ -538,7 +538,7 @@ export default class TransactionController extends EventEmitter {
     if (!this._checkIfTxStatusIsUnapproved(txId)) {
       return;
     }
-    
+
     let swapTransaction = {
       sourceTokenSymbol,
       destinationTokenSymbol,
