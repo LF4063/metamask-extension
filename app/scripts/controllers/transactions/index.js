@@ -550,15 +550,12 @@ export default class TransactionController extends EventEmitter {
    * @param {string} swapApprovalTransaction.type
    * @param {string} swapApprovalTransaction.sourceTokenSymbol
    */
-  updateSwapApprovalTransaction(
-    txId,
-    { type, sourceTokenSymbol, estimatedBaseFee },
-  ) {
+  updateSwapApprovalTransaction(txId, { type, sourceTokenSymbol }) {
     if (!this._checkIfTxStatusIsUnapproved(txId)) {
       return;
     }
 
-    let swapApprovalTransaction = { type, sourceTokenSymbol, estimatedBaseFee };
+    let swapApprovalTransaction = { type, sourceTokenSymbol };
     // only update what is defined
     swapApprovalTransaction = pickBy(swapApprovalTransaction);
 
