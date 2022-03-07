@@ -707,6 +707,27 @@ export function updateTransactionGasFees(txId, txGasFees) {
   };
 }
 
+export function updatePreviousGasParams(txId, previousGasParams) {
+  return async (dispatch) => {
+    try {
+      await promisifiedBackground.updatePreviousGasParams(
+        txId,
+        previousGasParams,
+      );
+    } catch (error) {
+      dispatch(txError(error));
+      dispatch(goHome());
+      log.error(error.message);
+      throw error;
+    }
+
+    const newState = await updateMetamaskStateFromBackground();
+    dispatch(updateMetamaskState(newState));
+    dispatch(showConfTxPage({ id: txId }));
+    return previousGasParams;
+  };
+}
+
 export function updateTransactionUserSettings(txId, txUserSettings) {
   return async (dispatch) => {
     try {
