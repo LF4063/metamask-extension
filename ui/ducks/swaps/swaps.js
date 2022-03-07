@@ -1193,7 +1193,6 @@ export const signAndSendTransactions = (history, metaMetricsEvent) => {
     }
     const finalTradeTxMeta = await dispatch(
       updateSwapTransaction(tradeTxMeta.id, {
-        ...tradeTxMeta,
         estimatedBaseFee: decEstimatedBaseFee,
         sourceTokenSymbol: sourceTokenInfo.symbol,
         destinationTokenSymbol: destinationTokenInfo.symbol,
