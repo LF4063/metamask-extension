@@ -673,10 +673,13 @@ const updateMetamaskStateFromBackground = () => {
   });
 };
 
-export function  updateSwapApprovalTransaction(txId, txSwapApproval) {
+export function updateSwapApprovalTransaction(txId, txSwapApproval) {
   return async (dispatch) => {
     try {
-      await promisifiedBackground. updateSwapApprovalTransaction(txId, txSwapApproval);
+      await promisifiedBackground.updateSwapApprovalTransaction(
+        txId,
+        txSwapApproval,
+      );
     } catch (error) {
       dispatch(txError(error));
       dispatch(goHome());
@@ -684,7 +687,7 @@ export function  updateSwapApprovalTransaction(txId, txSwapApproval) {
       throw error;
     }
 
-    return txSwap;
+    return txSwapApproval;
   };
 }
 
