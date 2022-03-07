@@ -1533,7 +1533,7 @@ export default class MetamaskController extends EventEmitter {
         txController,
       ),
 
-      updatePreviousGasParams: txController.updateTransactionGasFees.bind(
+      updatePreviousGasParams: txController.updatePreviousGasParams.bind(
         txController,
       ),
 
