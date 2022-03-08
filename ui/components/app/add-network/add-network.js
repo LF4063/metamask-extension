@@ -100,7 +100,7 @@ const AddNetwork = ({
               {!regexp.test(item.rpcUrl) && (
                 <Tooltip
                   className="add-network__warning-tooltip"
-                  position="left"
+                  position="top"
                   interactive
                   html={
                     <Box margin={3} className="add-network__warning-tooltip">
